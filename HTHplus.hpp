@@ -21,6 +21,7 @@ class HTHplus {
 		void imprimir_genero();
 		void buscar_pelicula(string peli);
 		void puntuaciones();
+		void eliminar(int); 
 
 
 

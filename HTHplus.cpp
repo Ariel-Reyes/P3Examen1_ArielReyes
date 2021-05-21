@@ -21,9 +21,19 @@ HTHplus::~HTHplus()
 		}; 
 	    // metodos 
 	    void imprimir_genero(){
+	
+	    	
+	    	
+	    	
+	    	
 		}; 
 	    void buscar_pelicula(string peli){
 		}; 
 	    void puntuaciones(){
 	    	
 		}; 
+		
+		void HTHplus::eliminar(int x){
+			lista_pelis.erase(begin(lista_pelis)+x);
+		}; 
+		
