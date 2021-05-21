@@ -13,7 +13,7 @@ int main() {
 	srand(time(NULL));
 
 	int opc=0;
-	while(opc!=7) {
+	while(opc!=8) {
 		opc = menu();
 	}
 
@@ -24,166 +24,184 @@ int menu() {
 	srand(time(NULL));
 
 	int opc=0;
-	while(opc!=7) {
-		cout<<"..........Menu............"<<endl;
-		cout<<"1........................Agregar Pelicula"<<endl;
-		cout<<"2........................Modificar Pelicula"<<endl;
-		cout<<"3........................Eliminar Pelicula"<<endl;
-		cout<<"4........................Imprimir Peliculas por genero"<<endl;
-		cout<<"5........................Buscar Pelicula"<<endl;
-		cout<<"6........................Imprimir peliculas ordenadas por valoracion"<<endl;
-		cout<<"7........................Salir"<<endl;
-		cout<<"Ingrese la opcion que desea: "<<endl;
-		cin>>opc;
+
+	cout<<"..........Menu............"<<endl;
+	cout<<"1........................Agregar Peliculas"<<endl;
+	cout<<"2........................Modificar Peliculas"<<endl;
+	cout<<"3........................Eliminar Peliculas"<<endl;
+	cout<<"4........................Listar Peliculas"<<endl;
+	cout<<"5........................Imprimir Peliculas por genero"<<endl;
+	cout<<"6........................Buscar Pelicula"<<endl;
+	cout<<"7........................Imprimir peliculas ordenadas por valoracion"<<endl;
+	cout<<"8........................Salir"<<endl;
+	cout<<"Ingrese la opcion que desea: "<<endl;
+	cin>>opc;
 
 
-		switch(opc) {
-			case 1: {
-				cout<<"...........Agregar Pelicula............."<<endl;
-				cout<<"Ingrese el titulo: "<<endl;
-				string titulo;
-				cin>>titulo;
-				cout<<"Ingrese el director: "<<endl;
-				string director;
-				cin>>director;
-				cout<<"Ingrese el Genero: "<<endl;
-				string genero;
-				cin>>genero;
-				int valoracion = 1+ rand() % 4;
-				cout<<"La valoracion en numero random es: "<<valoracion<<endl;
+	switch(opc) {
+		case 1: {
+			cout<<"...........Agregar Pelicula............."<<endl;
+			cout<<"Ingrese el titulo: "<<endl;
+			string titulo;
+			cin>>titulo;
+			cout<<"Ingrese el director: "<<endl;
+			string director;
+			cin>>director;
+			cout<<"Ingrese el Genero: "<<endl;
+			string genero;
+			cin>>genero;
+			int valoracion = 1+ rand() % 4;
+			cout<<"La valoracion en numero random es: "<<valoracion<<endl;
 
-				h->set_pelicula_alista(new Pelicula(titulo,director,genero,valoracion));
+			h->set_pelicula_alista(new Pelicula(titulo,director,genero,valoracion));
 
-				cout<<"Pelicula agreda correctamente :) "<<endl;
-				return 1;
-				break;
+			cout<<"Pelicula agreda correctamente :) "<<endl;
+			return 1;
+			break;
+		}
+
+		case 2: {
+			Pelicula* peli;
+			cout<<".........Modificar Pelicula........."<<endl;
+			for(int i=0; i<h->get_pelicula_lista().size(); i++) {
+				peli = h->get_pelicula_lista()[i];
+				cout<<i<<")"<<peli->get_titulo()<<endl;
 			}
 
-			case 2: {
-				Pelicula* peli;
-				cout<<".........Modificar Pelicula........."<<endl;
-				for(int i=0; i<h->get_pelicula_lista().size(); i++) {
-					peli = h->get_pelicula_lista()[i];
-					cout<<i<<")"<<peli->get_titulo()<<endl;
-				}
-
+			cout<<"Ingrese el indice de la pelicula que desea modificar: "<<endl;
+			int indice;
+			cin>>indice;
+			while(indice>h->get_pelicula_lista().size() || indice<0 ) {
 				cout<<"Ingrese el indice de la pelicula que desea modificar: "<<endl;
-				int indice;
 				cin>>indice;
-				while(indice>h->get_pelicula_lista().size() || indice<0 ) {
-					cout<<"Ingrese el indice de la pelicula que desea modificar: "<<endl;
-					cin>>indice;
-				}
-				peli = h->get_pelicula_lista()[indice];
-				cout<<"______________Que desea modificar de la pelicula___________"<<endl;
-				cout<<"1.............Titulo"<<endl;
-				cout<<"2.............Director"<<endl;
-				cout<<"3.............Genero"<<endl;
-				cout<<"4.............valoracion"<<endl;
-				cout<<"Ingrese la opcion que desea: "<<endl;
-				int op;
-				cin>>op;
+			}
+			peli = h->get_pelicula_lista()[indice];
+			cout<<"______________Que desea modificar de la pelicula___________"<<endl;
+			cout<<"1.............Titulo"<<endl;
+			cout<<"2.............Director"<<endl;
+			cout<<"3.............Genero"<<endl;
+			cout<<"4.............valoracion"<<endl;
+			cout<<"Ingrese la opcion que desea: "<<endl;
+			int op;
+			cin>>op;
 
-				switch(op) {
-					case 1: {
-						string titulo;
-						cout<<"Ingrese el titulo: "<<endl;
-						cin>>titulo;
-						peli->set_titulo(titulo);
-						break;
-					}
-
-					case 2: {
-						string director;
-						cout<<"Ingrese el Director: "<<endl;
-						cin>>director;
-						peli->set_director(director);
-						break;
-					}
-
-					case 3: {
-						string genero;
-						cout<<"Ingrese el Genero: "<<endl;
-						cin>>genero;
-						peli->set_genero(genero);
-						break;
-
-						break;
-					}
-
-					case 4: {
-						int valoracion = 1 + rand() %4;
-						peli->set_valoracion(valoracion);
-						break;
-					}
+			switch(op) {
+				case 1: {
+					string titulo;
+					cout<<"Ingrese el titulo: "<<endl;
+					cin>>titulo;
+					peli->set_titulo(titulo);
+					break;
 				}
 
+				case 2: {
+					string director;
+					cout<<"Ingrese el Director: "<<endl;
+					cin>>director;
+					peli->set_director(director);
+					break;
+				}
 
+				case 3: {
+					string genero;
+					cout<<"Ingrese el Genero: "<<endl;
+					cin>>genero;
+					peli->set_genero(genero);
+					break;
 
+					break;
+				}
 
-				return 2;
-				break;
+				case 4: {
+					int valoracion = 1 + rand() %4;
+					peli->set_valoracion(valoracion);
+					break;
+				}
 			}
 
-			case 3: {
 
-				Pelicula* peli;
-				cout<<"..............Eliminar Pelicula................."<<endl;
-				for(int i=0; i<h->get_pelicula_lista().size(); i++) {
-					peli = h->get_pelicula_lista()[i];
-					cout<<i<<")"<<peli->get_titulo()<<endl;
-				}
-                  	cout<<"Ingrese el indice de la pelicula que desea Eliminar: "<<endl;
-				int indice;
+
+
+			return 2;
+			break;
+		}
+
+		case 3: {
+
+			Pelicula* peli;
+			cout<<"..............Eliminar Pelicula................."<<endl;
+			for(int i=0; i<h->get_pelicula_lista().size(); i++) {
+				peli = h->get_pelicula_lista()[i];
+				cout<<i<<")"<<peli->get_titulo()<<endl;
+			}
+			cout<<"Ingrese el indice de la pelicula que desea Eliminar: "<<endl;
+			int indice;
+			cin>>indice;
+			while(indice>h->get_pelicula_lista().size() || indice<0 ) {
+				cout<<"Ingrese el indice de la pelicula que desea modificar: "<<endl;
 				cin>>indice;
-				while(indice>h->get_pelicula_lista().size() || indice<0 ) {
-					cout<<"Ingrese el indice de la pelicula que desea modificar: "<<endl;
-					cin>>indice;
-				}
-				
-				h->eliminar(indice); 
-
-				return 3;
-				break;
 			}
 
-			case 4: {
-				
-				return 4;
-				break;
+			h->eliminar(indice);
+
+			return 3;
+			break;
+		}
+
+		case 4: {
+			cout<<"..............Listar Pelicula............."<<endl;
+			Pelicula* peli;
+
+			for(int i=0; i<h->get_pelicula_lista().size(); i++) {
+				peli = h->get_pelicula_lista()[i];
+				cout<<i<<")"<<"Titulo: "<<peli->get_titulo()<<" Director: "<<peli->get_director()<<" Genero"<<peli->get_genero()<<" Valoracion: "<<peli->get_valoracion()<<endl;
 			}
 
-			case 5: {
+			return 4;
+			break;
+		}
+
+		case 5: {
+			if(h->get_pelicula_lista().size()<=0) {
+				cout<<"Aun no hay peliculas"<<endl;
+			} else {
+				h->imprimir_genero();
 				return 5;
 				break;
 			}
-
-
-			case 6: {
-				return 6;
-				break;
-			}
-
-			case 7: {
-
-				cout<<"Adios..."<<endl;
-				return 7;
-				break;
-			}
-
-			default: {
-
-				cout<<"Ingrese una opcion incorrecta :'c "<<endl;
-				return 0;
-				break;
-			}
-
-
 		}
 
 
+		case 6: {
+			return 6;
+			break;
+		}
+
+		case 7: {
+
+			return 7;
+			break;
+		}
+
+		case 8: {
+			cout<<"Adios..."<<endl;
+
+			return 8;
+			break;
+		}
+		default: {
+
+			cout<<"Ingrese una opcion incorrecta :'c "<<endl;
+			return 0;
+			break;
+		}
+
 
 	}
+
+
+
+
 
 
 
