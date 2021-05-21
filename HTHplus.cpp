@@ -24,6 +24,7 @@ void HTHplus::imprimir_genero() {
 
 	Pelicula* peli;
 	vector<string> a;
+	vector<string> b; 
 	for(int i=0;i<lista_pelis.size();i++){
 	
 		peli = lista_pelis[i];
@@ -34,7 +35,7 @@ void HTHplus::imprimir_genero() {
 	
 	
 	
-	for(int i=0;i<a.size();i++){
+	/*for(int i=0;i<a.size();i++){
 		
 	
 			string genero = a[i]; 
@@ -43,14 +44,13 @@ void HTHplus::imprimir_genero() {
 	     p = lista_pelis[j]; 
 	       if(p->get_genero()==genero){
 	       	cout<<"El titulo: "<<p->get_titulo()<<endl; 
-		   } 
-		   
+		   }  
+	}*/ 
 	       
 	
 	
 		
 		}
-}
 }
 
 void HTHplus::buscar_pelicula(string peli) {

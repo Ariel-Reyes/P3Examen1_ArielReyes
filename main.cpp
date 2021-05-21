@@ -43,13 +43,18 @@ int menu() {
 			cout<<"...........Agregar Pelicula............."<<endl;
 			cout<<"Ingrese el titulo: "<<endl;
 			string titulo;
-			cin>>titulo;
+			getline(cin,titulo);
+			getline(cin,titulo);
 			cout<<"Ingrese el director: "<<endl;
 			string director;
-			cin>>director;
+			getline(cin,director);
+
+
 			cout<<"Ingrese el Genero: "<<endl;
 			string genero;
-			cin>>genero;
+			getline(cin,genero);
+
+
 			int valoracion = 1+ rand() % 4;
 			cout<<"La valoracion en numero random es: "<<valoracion<<endl;
 
@@ -89,7 +94,10 @@ int menu() {
 				case 1: {
 					string titulo;
 					cout<<"Ingrese el titulo: "<<endl;
-					cin>>titulo;
+					getline(cin,titulo);
+					getline(cin,titulo);
+
+
 					peli->set_titulo(titulo);
 					break;
 				}
@@ -98,6 +106,8 @@ int menu() {
 					string director;
 					cout<<"Ingrese el Director: "<<endl;
 					cin>>director;
+
+
 					peli->set_director(director);
 					break;
 				}
@@ -106,6 +116,8 @@ int menu() {
 					string genero;
 					cout<<"Ingrese el Genero: "<<endl;
 					cin>>genero;
+
+
 					peli->set_genero(genero);
 					break;
 
@@ -113,7 +125,7 @@ int menu() {
 				}
 
 				case 4: {
-					int valoracion = 1 + rand() %4;
+					int valoracion = 1 + rand() %5;
 					peli->set_valoracion(valoracion);
 					break;
 				}
@@ -154,7 +166,7 @@ int menu() {
 
 			for(int i=0; i<h->get_pelicula_lista().size(); i++) {
 				peli = h->get_pelicula_lista()[i];
-				cout<<i<<")"<<"Titulo: "<<peli->get_titulo()<<" Director: "<<peli->get_director()<<" Genero"<<peli->get_genero()<<" Valoracion: "<<peli->get_valoracion()<<endl;
+				cout<<i<<")"<<" Titulo: "<<peli->get_titulo()<<" Director: "<<peli->get_director()<<" Genero"<<peli->get_genero()<<" Valoracion: "<<peli->get_valoracion()<<endl;
 			}
 
 			return 4;
@@ -173,6 +185,13 @@ int menu() {
 
 
 		case 6: {
+
+			if(h->get_pelicula_lista().size()<=0) {
+				cout<<"Aun no hay peliculas"<<endl;
+			} else {
+                 
+			}
+
 			return 6;
 			break;
 		}
