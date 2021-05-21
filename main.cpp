@@ -55,7 +55,7 @@ int menu() {
 			getline(cin,genero);
 
 
-			int valoracion = 1+ rand() % 4;
+			int valoracion = 1+ rand() % 6;
 			cout<<"La valoracion en numero random es: "<<valoracion<<endl;
 
 			h->set_pelicula_alista(new Pelicula(titulo,director,genero,valoracion));
@@ -189,7 +189,11 @@ int menu() {
 			if(h->get_pelicula_lista().size()<=0) {
 				cout<<"Aun no hay peliculas"<<endl;
 			} else {
-                 
+				cout<<"Ingrese la busqueda: "<<endl;
+				string cadena;
+				cin>>cadena;
+				h->buscar_pelicula(cadena);
+
 			}
 
 			return 6;
@@ -197,10 +201,10 @@ int menu() {
 		}
 
 		case 7: {
-	if(h->get_pelicula_lista().size()<=0) {
+			if(h->get_pelicula_lista().size()<=0) {
 				cout<<"Aun no hay peliculas"<<endl;
 			} else {
-                 h->puntuaciones(); 
+				h->puntuaciones();
 			}
 			return 7;
 			break;
