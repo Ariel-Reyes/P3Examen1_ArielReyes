@@ -197,7 +197,11 @@ int menu() {
 		}
 
 		case 7: {
-
+	if(h->get_pelicula_lista().size()<=0) {
+				cout<<"Aun no hay peliculas"<<endl;
+			} else {
+                 h->puntuaciones(); 
+			}
 			return 7;
 			break;
 		}

@@ -35,7 +35,7 @@ void HTHplus::imprimir_genero() {
 	
 	
 	
-	/*for(int i=0;i<a.size();i++){
+	for(int i=0;i<a.size();i++){
 		
 	
 			string genero = a[i]; 
@@ -45,7 +45,7 @@ void HTHplus::imprimir_genero() {
 	       if(p->get_genero()==genero){
 	       	cout<<"El titulo: "<<p->get_titulo()<<endl; 
 		   }  
-	}*/ 
+	}
 	       
 	
 	
@@ -56,7 +56,21 @@ void HTHplus::imprimir_genero() {
 void HTHplus::buscar_pelicula(string peli) {
 }
 void HTHplus::puntuaciones() {
-
+	Pelicula* a; 
+  for(int i=5;i>1;i--){
+  	
+  	for(int j=0;j<lista_pelis.size();j++){
+  		
+  		a = lista_pelis[j]; 
+  		if(i==a->get_valoracion()){
+  	      cout<<a->get_titulo()<<"-"<<a->get_director()<<"-"<<a->get_genero()<<"-"<<a->get_valoracion()<<"/"<<5<<endl; 	   
+		  }
+  		
+	  }
+  	
+  }
+  
+  
 };
 
 void HTHplus::eliminar(int x) {
