@@ -15,7 +15,7 @@ class HTHplus {
 		~HTHplus();
 		HTHplus(vector<Pelicula*> lista_pelis);
 		// gets and sets para la lista de pelis
-		void set_pelicula_alista(Pelicula peli);
+		void set_pelicula_alista(Pelicula*);
 		vector<Pelicula*> get_pelicula_lista();
 		// metodos
 		void imprimir_genero();
